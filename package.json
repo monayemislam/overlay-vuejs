@@ -1,0 +1,16 @@
+{
+  "name": "overlay-vuejs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "echo 'Building...'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["overlay vuejs", "vuejs overlay","overlay","vuejs"],
+  "author": "Md Monayem Islam <contact@monayemislam.me>",
+  "license": "MIT",
+  "description": "A stylish, animated, and customizable overlay (popup) component for Vue.js",
+  "dependencies": {
+    "vue": "^3.5.12"
+  }
+}
