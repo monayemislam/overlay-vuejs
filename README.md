@@ -33,33 +33,107 @@ app.use(Overlay);
 app.mount('#app');
 ```
 
-Then, use the `<Overlay>` component in your templates:
+Then, use the `<Overlay>` component in your templates. Here’s an example of how to implement it in a test project:
 
 ```vue
 <template>
-  <Overlay
-    :opened="isOverlayOpen"
-    header="My Overlay"
-    @closed="handleClose"
-  >
-    <p>This is the content of the overlay.</p>
-  </Overlay>
+  <div id="app">
+    <h1>Overlay Component Test</h1>
+    
+    <button @click="openBasicOverlay">Open Basic Overlay</button>
+    <button @click="openLargeOverlay">Open Large Overlay</button>
+    <button @click="openAnimatedOverlay">Open Animated Overlay</button>
+    
+    <Overlay 
+      :opened="basicOverlayOpened" 
+      :visible="basicOverlayVisible" 
+      header="Basic Overlay"
+      @closed="closeBasicOverlay"
+    >
+      <p>This is a basic overlay with default settings.</p>
+    </Overlay>
+    
+    <Overlay 
+      :opened="largeOverlayOpened" 
+      :visible="largeOverlayVisible" 
+      header="Large Overlay"
+      size="large"
+      @closed="closeLargeOverlay"
+    >
+      <p>This is a large overlay with custom content.</p>
+      <p>It demonstrates the use of the size prop.</p>
+    </Overlay>
+    
+    <Overlay 
+      :opened="animatedOverlayOpened" 
+      :visible="animatedOverlayVisible" 
+      header="Animated Overlay"
+      animate="bounce"
+      @closed="closeAnimatedOverlay"
+    >
+      <p>This overlay uses the bounce animation.</p>
+      <template #footer>
+        <button @click="closeAnimatedOverlay">Close</button>
+      </template>
+    </Overlay>
+  </div>
 </template>
 
 <script>
+import { Overlay } from 'overlay-vuejs';
+
 export default {
+  name: 'App',
+  components: {
+    Overlay
+  },
   data() {
     return {
-      isOverlayOpen: false
+      basicOverlayOpened: false,
+      basicOverlayVisible: false,
+      largeOverlayOpened: false,
+      largeOverlayVisible: false,
+      animatedOverlayOpened: false,
+      animatedOverlayVisible: false
     };
   },
   methods: {
-    handleClose() {
-      this.isOverlayOpen = false;
+    openBasicOverlay() {
+      this.basicOverlayOpened = this.basicOverlayVisible = true;
+    },
+    closeBasicOverlay() {
+      this.basicOverlayOpened = this.basicOverlayVisible = false;
+    },
+    openLargeOverlay() {
+      this.largeOverlayOpened = this.largeOverlayVisible = true;
+    },
+    closeLargeOverlay() {
+      this.largeOverlayOpened = this.largeOverlayVisible = false;
+    },
+    openAnimatedOverlay() {
+      this.animatedOverlayOpened = this.animatedOverlayVisible = true;
+    },
+    closeAnimatedOverlay() {
+      this.animatedOverlayOpened = this.animatedOverlayVisible = false;
     }
   }
 };
 </script>
+
+<style>
+#app {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 60px;
+}
+
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+</style>
 ```
 
 ## Props
@@ -86,4 +160,4 @@ export default {
 
 ## License
 
-MIT © [Md Monayem Islam](mailto:contact@monayemislam.me)
+MIT © [Md Monayem Islam](https://monayemislam.me)
