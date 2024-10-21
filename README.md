@@ -21,19 +21,7 @@ npm install overlay-vuejs
 
 ## Usage
 
-First, import and register the component in your Vue application:
-
-```javascript
-import { createApp } from 'vue';
-import App from './App.vue';
-import Overlay from 'overlay-vuejs';
-
-const app = createApp(App);
-app.use(Overlay);
-app.mount('#app');
-```
-
-Then, use the `<Overlay>` component in your templates. Here’s an example of how to implement it in a test project:
+To use the `<Overlay>` component in your `App.vue` file, you can follow this example:
 
 ```vue
 <template>
@@ -160,4 +148,4 @@ button {
 
 ## License
 
-MIT © [Md Monayem Islam](https://monayemislam.me)
+MIT © [Md Monayem Islam](mailto:contact@monayemislam.me)
